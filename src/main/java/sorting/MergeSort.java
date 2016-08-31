@@ -1,14 +1,12 @@
 package main.java.sorting;
 
-import javax.xml.bind.SchemaOutputResolver;
-
 /**
  * Created by sridhar.anumandla on 7/8/15.
  */
 public class MergeSort {
 
     public void merge(int[] array, int[] auxiliary, int low, int mid, int high) {
-        copyArray(array, auxiliary);
+        copyArray(array, auxiliary, low, high);
 
         int i = low;
         int j = mid;
@@ -47,8 +45,8 @@ public class MergeSort {
         merge(array, auxiliary, low, mid + 1, high);
     }
 
-    private void copyArray(int array[], int auxiliary[]) {
-        for (int i = 0; i < array.length; i++) {
+    private void copyArray(int array[], int auxiliary[], int low, int high) {
+        for (int i = low; i <= high; i++) {
             auxiliary[i] = array[i];
         }
     }
